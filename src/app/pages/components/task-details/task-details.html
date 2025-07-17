@@ -1,0 +1,58 @@
+<b>Task:</b>
+<br />
+<div *ngIf="(taskService.currentTask$ | async) as currentTask">
+  <p>{{currentTask.completed}}</p>
+  <input
+    type="text"
+    pInputText
+    placeholder="Title"
+    [(ngModel)]="currentTask.title"
+    fluid
+  />
+  <br />
+  <textarea
+    rows="5"
+    cols="30"
+    pTextarea
+    placeholder="Description"
+    [(ngModel)]="currentTask.description"
+    fluid
+  ></textarea>
+  <br />
+  <br />
+
+  <b>Subtasks</b>
+
+  <div class="flex justify-between">
+    <input
+      type="text"
+      pInputText
+      placeholder="Add Subtasks"
+      [(ngModel)]="newSubTask"
+      fluid
+    />
+    <p-button
+      label="+"
+      severity="secondary"
+      (click)="addSubTask(newSubTask)"
+    ></p-button>
+  </div>
+  <div *ngFor="let subTask of currentTask.subTasks">
+    <p-checkbox [(ngModel)]="subTask.completed" [binary]="true" />
+    <label class="ml-2" [ngClass]="{ 'strikethrough': subTask.completed }">{{subTask.name}}</label>
+  </div>
+  <br />
+  <div class="flex justify-end">
+    <p-button
+      label="Delete Task"
+      severity="secondary"
+      (click)="removeTask(currentTask.id)"
+    ></p-button>
+    <div class="w-3"></div>
+    <p-button
+      label="Save Changes"
+      (click)="updateTask(currentTask)"
+    ></p-button>
+  </div>
+  <br />
+</div>

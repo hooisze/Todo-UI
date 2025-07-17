@@ -1,0 +1,28 @@
+<p>Tasks</p>
+<div *ngIf="(taskList$ | async) as taskList">
+  <div *ngFor="let task of taskList" class="shadow-md my-5 p-5">
+    <div class="flex justify-between">
+      <div>
+        <p-checkbox [(ngModel)]="task.completed" [binary]="true" />
+        <label for="ny" class="ml-2">{{task.title}}</label>
+
+        <!-- <p-checkbox [(ngModel)]="task.completed" [binary]="true" /><b
+          >{{task.name}}</b
+        > -->
+        <p>Subtasks: <app-small-container [tag]="'' + task.subTasks.length"></app-small-container></p>
+      </div>
+
+      <div class="w-3"></div>
+         <p-button
+          icon="pi pi-angle-right"
+          severity="secondary"
+          variant="text"
+          (click)="viewTask(task)"
+        ></p-button>
+    
+    </div>
+  </div>
+</div>
+<div class="empty" *ngIf="(taskList$ | async)?.length === 0">
+    <h2>No Task Found</h2>
+</div>

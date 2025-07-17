@@ -1,0 +1,28 @@
+<div class="grid grid-cols-2 gap-5">
+  <div class="shadow-xl p-8 justify-center-safe">
+    <div class="flex justify-between">
+      <p class="text-3xl font-bold">ToDo List</p>
+      <p-button label="Clear" variant="text" (click)="onClear()" />
+    </div>
+
+    <br />
+    <div class="flex justify-between">
+      <input
+        type="text"
+        pInputText
+        placeholder="Add task"
+        [(ngModel)]="task"
+        fluid
+      />
+      <div class="w-5"></div>
+      <p-button label="Create" (click)="onSubmit()" />
+    </div>
+    <br />
+    <app-task-list></app-task-list>
+  </div>
+
+  <div class="shadow-xl p-8 justify-center-safe">
+    <app-task-details></app-task-details>
+  </div>
+</div>
+
