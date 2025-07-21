@@ -41,6 +41,18 @@ export class TaskApiService {
     );
   }
 
+  public RemoveCurrentTask(id: string): Observable<any[]> {
+    const endpoint = `${this.moduleRoute}/remove/${id}`;
+
+    return this.apiService.createRequest<any>(
+      endpoint,
+      'DELETE',
+      {},
+
+      true
+    );
+  }
+
    public RemoveAllTasks(): Observable<any[]> {
     const endpoint = `${this.moduleRoute}/remove_all`;
 

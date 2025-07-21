@@ -1,0 +1,12 @@
+<div>
+  <b>Menu</b><br />
+  <p>Tasks</p>
+   <p>Categories</p>
+  <div *ngFor="let category of categoriesList">
+    <div class="flex justify-between" >
+      <div [style.background-color]="category.color" class="w-3 p-5"></div>
+      <span>{{category.name}}</span>
+      <span>{{category.count}}</span>
+    </div>
+  </div>
+</div>
