@@ -49,11 +49,9 @@ export class TaskDetails {
     this.taskService.taskList$.next(updatedTasks);
   }
 
-  public removeTask(taskId: number): void {
+  public removeTask(taskId: string): void {
 
-    const updatedTasks = this.currentTask.filter((task) => task.id !== taskId);
-
-    this.taskService.taskList$.next(updatedTasks);
+    this.taskService.removeCurrentTask(taskId)
     this.taskService.resetCurrentTask()
   }
 }

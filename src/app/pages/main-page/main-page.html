@@ -1,5 +1,8 @@
-<div class="grid grid-cols-2 gap-5">
-  <div class="shadow-xl p-8 justify-center-safe">
+<div class="grid grid-cols-5 gap-5">
+  <div class="shadow-xl p-5 justify-center-safe">
+    <app-side-bar></app-side-bar>
+  </div>
+  <div class="shadow-xl col-span-2 p-8 justify-center-safe">
     <div class="flex justify-between">
       <p class="text-3xl font-bold">ToDo List</p>
       <p-button label="Clear" variant="text" (click)="onClear()" />
@@ -21,7 +24,7 @@
     <app-task-list></app-task-list>
   </div>
 
-  <div class="shadow-xl p-8 justify-center-safe">
+  <div class="shadow-xl col-span-2 p-8 justify-center-safe">
     <app-task-details></app-task-details>
   </div>
 </div>

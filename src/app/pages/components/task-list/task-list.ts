@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TasksService } from '../../services/tasks-service';
 import { CommonModule } from '@angular/common';
 import { ShareModule } from '../../../share.module';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { Tasks } from '../../../models/taskList';
 import { SmallContainer } from '../../../shares/components/small-container/small-container';
 
@@ -13,21 +13,11 @@ import { SmallContainer } from '../../../shares/components/small-container/small
   styleUrl: './task-list.scss',
 })
 export class TaskList {
-  public taskList$: Observable<Tasks[]>;
 
   constructor(public taskService: TasksService) {
-    this.taskList$ = this.getTask();
+
   }
 
-  private getTask(): Observable<Tasks[]> {
-    return this.taskService.tasks$.pipe(
-      map((tasks) => this.sortTasks(tasks))
-    );
-  }
-
-  private sortTasks(tasks: Tasks[]): Tasks[] {
-    return tasks.sort((a, b) => b.id - a.id);
-  }
 
   public viewTask(currTask: Tasks): void{
      this.taskService.currentTask$.next(currTask);
@@ -35,20 +25,18 @@ export class TaskList {
   }
 
   public updateTask(updatedTask: Tasks): void {
-    const currentTasks = this.taskService.taskList$.getValue();
+    const currentTasks =[ this.taskService.currentTask$.getValue()];
 
     const updatedTasks = currentTasks.map((task) =>
       task.id === updatedTask.id ? { ...task, ...updatedTask } : task
     );
 
-    this.taskService.taskList$.next(updatedTasks);
+    // this.taskService.taskList$.next(updatedTasks);
   }
 
   public removeTask(taskId: number): void {
-    const currentTasks = this.taskService.taskList$.getValue();
+    const currentTasks = this.taskService.currentTask$.getValue();
+    this.taskService.removeCurrentTask(currentTasks.id.toString())
 
-    const updatedTasks = currentTasks.filter((task) => task.id !== taskId);
-
-    this.taskService.taskList$.next(updatedTasks);
   }
 }
