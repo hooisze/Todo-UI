@@ -1,6 +1,13 @@
 export interface Categories {
   id: number;
-  name: string;
+  title: string;
   color: string;
   count: number;
+}
+
+export interface TaskViewModel {
+  id: number;
+  title: string;
+  icon: string;
+  link: string;
 }

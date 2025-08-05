@@ -9,24 +9,34 @@
         <!-- <p-checkbox [(ngModel)]="task.completed" [binary]="true" /><b
           >{{task.name}}</b
         > -->
-        <br>
-        <br>
-        <span>{{task.categories}} <app-small-container [tag]="''" [color]="'aqua'"></app-small-container></span>
-        <!-- <app-small-container [tag]="" [color]="'aqua'"></app-small-container> -->
-        <span>Subtasks <app-small-container [tag]="'' + task.subTasks.length" [color]="'azure'"></app-small-container></span>
+        <br />
+        <br />
       </div>
 
       <div class="w-3"></div>
-         <p-button
-          icon="pi pi-angle-right"
-          severity="secondary"
-          variant="text"
-          (click)="viewTask(task)"
-        ></p-button>
-    
+      <p-button
+        icon="pi pi-angle-right"
+        severity="secondary"
+        variant="text"
+        (click)="viewTask(task)"
+      ></p-button>
+    </div>
+    <div class="flex flex-row">
+      <app-small-container
+        [tag]="''"
+        [color]="'#77BEF0'"
+        [title]="'Work'"
+      ></app-small-container>
+      <div class="divider">|</div>
+      <!-- <app-small-container [tag]="" [color]="'aqua'"></app-small-container> -->
+      <app-small-container
+        [tag]="'' + task.subTasks.length"
+        [color]="'#DDDAD0'"
+        [title]="'Subtasks'"
+      ></app-small-container>
     </div>
   </div>
 </div>
 <div class="empty" *ngIf="(taskService.tasks$ | async)?.length === 0">
-    <h2>No Task Found</h2>
+  <h2>No Task Found</h2>
 </div>

@@ -1,0 +1,9 @@
+<p>Tasks</p>
+<div>
+  <div *ngFor="let task of taskViewList">
+    <div class="center-div">
+      <i [class]="task.icon" style="color: grey"></i>
+      <span style="padding-left: 15px;">{{task.title}}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<p>Categories</p>
+<div *ngIf="(categoriesService.categories$ | async) as categoriesList">
+  <div *ngFor="let category of categoriesList">
+    <div class="flex flex-row center-div">
+      <div [style.background-color]="category.color" class="box-size"></div>
+      <span style="padding-left: 15px;" class="grow">{{category.title}}</span>
+      <span>0</span>
+    </div>
+  </div>
+</div>

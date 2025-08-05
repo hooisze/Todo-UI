@@ -7,7 +7,7 @@ import { TaskList } from '../components/task-list/task-list';
 import { ShareModule } from '../../share.module';
 import { TaskDetails } from '../components/task-details/task-details';
 import { map } from 'rxjs';
-import { SideBar } from '../components/side-bar/side-bar';
+import { SideBar } from '../components/sidebar/side-bar/side-bar';
 
 @Component({
   selector: 'app-main-page',

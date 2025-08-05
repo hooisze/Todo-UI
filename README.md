@@ -1,59 +1,92 @@
-# Todo
+# Todo Web Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
+A modern Todo web application built with [Angular](https://angular.dev/) 20, PrimeNG, and TailwindCSS. This app allows users to manage tasks, categories, and subtasks with a clean, responsive UI.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Add, update, and delete tasks
+- Organize tasks by categories
+- Manage subtasks for each task
+- Mark tasks and subtasks as completed
+- Responsive design using TailwindCSS
+- UI components powered by PrimeNG
 
-```bash
-ng serve
+## Project Structure
+
+```
+src/
+  app/
+    models/           # TypeScript interfaces for data models
+    pages/            # Main UI pages and components
+    services/         # API service wrappers
+    shares/           # Shared components and services
+    interceptors/     # HTTP interceptors (e.g., auth)
+    app.config.ts     # Angular application configuration
+    app.ts            # Root Angular component
+    ...
+  environments/       # Environment-specific configs
+  main.ts             # Application entry point
+  styles.scss         # Global styles (TailwindCSS)
+  index.html          # Main HTML file
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Getting Started
 
-## Code scaffolding
+### Prerequisites
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [Angular CLI](https://angular.dev/tools/cli)
 
-```bash
-ng generate component component-name
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone <your-repo-url>
+   cd To-do-UI-main
+   ```
+
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+### Running the Application
+
+Start the development server:
+```sh
+npm start
+```
+Open [http://localhost:4200/](http://localhost:4200/) in your browser.
+
+### Building for Production
+
+```sh
+npm run build
+```
+The production build will be in the `dist/` directory.
+
+### Running Tests
+
+To execute unit tests:
+```sh
+npm test
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## API
 
-```bash
-ng generate --help
-```
+The app communicates with a backend API. The base URL is configured in [`src/environments/environment.ts`](src/environments/environment.ts) for development and [`src/environments/environment.prod.ts`](src/environments/environment.prod.ts) for production.
 
-## Building
+## Technologies Used
 
-To build the project run:
+- [Angular 20](https://angular.dev/)
+- [PrimeNG](https://primeng.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [RxJS](https://rxjs.dev/)
 
-```bash
-ng build
-```
+## License
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+This project is licensed under the MIT License.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Feel free to update this README with more details about deployment, contributing, or backend API documentation as needed.

@@ -10,4 +10,5 @@ import { Tag } from '../../../models/tag';
 export class SmallContainer {
   @Input() tag?: string;
   @Input() color?: string;
+  @Input() title?: string;
 }
