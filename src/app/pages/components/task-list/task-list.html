@@ -4,11 +4,7 @@
     <div class="flex justify-between">
       <div>
         <p-checkbox [(ngModel)]="task.completed" [binary]="true" />
-        <label for="ny" class="ml-2">{{task.title}}</label>
-
-        <!-- <p-checkbox [(ngModel)]="task.completed" [binary]="true" /><b
-          >{{task.name}}</b
-        > -->
+        <label for="ny" class="ml-2" [ngClass]="{ 'strikethrough': task.completed }">{{task.title}}</label>
         <br />
         <br />
       </div>
@@ -22,12 +18,15 @@
       ></p-button>
     </div>
     <div class="flex flex-row">
-      <app-small-container
-        [tag]="''"
-        [color]="'#77BEF0'"
-        [title]="'Work'"
-      ></app-small-container>
-      <div class="divider">|</div>
+      <div *ngIf="task.categoryDetails">
+        <app-small-container
+          [tag]="''"
+          [color]="task.categoryDetails.color"
+          [title]="task.categoryDetails.label"
+        ></app-small-container>
+      </div>
+      <div class="divider" *ngIf="task.categories">|</div>
+
       <!-- <app-small-container [tag]="" [color]="'aqua'"></app-small-container> -->
       <app-small-container
         [tag]="'' + task.subTasks.length"

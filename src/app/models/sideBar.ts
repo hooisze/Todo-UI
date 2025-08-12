@@ -1,9 +1,10 @@
 export interface Categories {
-  id: number;
+  id: string;
   title: string;
   color: string;
-  count: number;
+  total_categories: number;
 }
+
 
 export interface TaskViewModel {
   id: number;

@@ -17,6 +17,12 @@ export class TaskApiService {
     return this.apiService.createRequest<any>(endpoint, 'GET');
   }
 
+  public fetchAllTasksByCategories(categories: string): Observable<any[]> {
+    const endpoint = `${this.moduleRoute}/${categories}`;
+
+    return this.apiService.createRequest<any>(endpoint, 'GET');
+  }
+
   public AddTask(body: any): Observable<any[]> {
     const endpoint = `${this.moduleRoute}`;
 

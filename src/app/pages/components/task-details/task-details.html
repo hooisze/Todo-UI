@@ -1,8 +1,13 @@
-
 <div *ngIf="(taskService.currentTask$ | async) as currentTask">
   <div class="flex justify-between">
     <b>Task:</b>
-    <p>{{currentTask.completed}} </p>
+    <p-selectbutton
+      [options]="statusOptions"
+      [(ngModel)]="currentTask.completed"
+      optionLabel="label"
+      optionValue="value"
+      aria-labelledby="basic"
+    />
   </div>
   <br />
   <input
@@ -21,11 +26,13 @@
     [(ngModel)]="currentTask.description"
     fluid
   ></textarea>
-  <input
-    type="text"
-    pInputText
-    placeholder="Categories"
+  <p-select
+    [options]="(taskService.categories$ | async ) ?? defaultCategories"
     [(ngModel)]="currentTask.categories"
+    optionLabel="label"
+    optionValue="value"
+    placeholder="Select a Category"
+    (onChange)="onChangeCategory($event)"
     fluid
   />
   <br />
@@ -59,9 +66,19 @@
       label="Delete Task"
       severity="secondary"
       (click)="removeTask(currentTask.id)"
+      *ngIf="isCreatedTask"
     ></p-button>
     <div class="w-3"></div>
-    <p-button label="Save Changes" (click)="updateTask(currentTask)"></p-button>
+    <p-button
+      label="Save Changes"
+      (click)="updateTask(currentTask)"
+      *ngIf="isCreatedTask"
+    ></p-button>
+    <p-button
+      label="Create"
+      (click)="createTask(currentTask)"
+      *ngIf="!isCreatedTask"
+    ></p-button>
   </div>
   <br />
 </div>

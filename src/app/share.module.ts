@@ -9,7 +9,8 @@ import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { TextareaModule } from 'primeng/textarea';
-
+import { SelectModule } from 'primeng/select';
+import { SelectButtonModule } from 'primeng/selectbutton';
 @NgModule({
   declarations: [],
   imports: [
@@ -22,7 +23,9 @@ import { TextareaModule } from 'primeng/textarea';
     ToolbarModule,
     InputTextModule,  
     CheckboxModule,
-    TextareaModule 
+    TextareaModule,
+    SelectModule,
+    SelectButtonModule
   ],
   exports: [
     CommonModule,
@@ -34,7 +37,9 @@ import { TextareaModule } from 'primeng/textarea';
     ToolbarModule,
     InputTextModule,
     CheckboxModule,
-    TextareaModule 
+    TextareaModule,
+    SelectModule,
+    SelectButtonModule
   ],
   providers: [],
 })
